@@ -77,11 +77,13 @@ function dealCardsOld(amount,pack,where){
 // alt version
 function dealCards(amount,pack,where){
   for(var i=0; i < amount; i++){
-    div = document.createElement('div');
-    div.className = 'cardFront';
-
+    let card = `<div class="card">
+                <div class="cardInner">
+                <div`
     if(pack[i].suit == 'Diamonds' || pack[i].suit == 'Hearts') {
-      div.className = 'cardFront red';
+      card += ` class="cardFront red">`;
+    } else {
+      card += ` class="cardFront">`;
     }
 
     if(pack[i].suit == 'Diamonds'){
@@ -90,16 +92,16 @@ function dealCards(amount,pack,where){
       var ascii_char = '&' + pack[i].suit.toLowerCase() + ';';
     }
 
-    div.innerHTML = '' + pack[i].name + '' + ascii_char + '';
+    card += '' + pack[i].name + '' + ascii_char + '';
 
-    let card = `<div class="card">
-      ${div}
-      <div class="cardBack">
-        reverse of card
-      </div>
-    </div>`;
+    card +=  `</div>
+              <div class="cardBack">
+                
+              </div>
+              </div>
+            </div>`;
 
-    where.appendChild(div);
+    where.innerHTML += card;
   }
 }
 

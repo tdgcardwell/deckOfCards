@@ -6,9 +6,6 @@ body {
   width:40px;
   height:60px;
   border:1px solid #151718;
-  float:left;
-  margin-right:5px;
-  margin-bottom:5px;
   border-radius:2px;
   font-family:courier;
   cursor:pointer;
@@ -24,4 +21,48 @@ span.number, span.suit{
   display:block;
   text-align:center;
   padding-top:8px;
+}
+
+
+/* width and height on card */
+.card{
+  background-color: transparent;
+  width:40px;
+  height:60px;
+  float: left;
+  perspective: 1000px;
+  margin-right:5px;
+  margin-bottom:5px;
+}
+
+/* container to position the faces */
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* this was the irritating bit:
+When the overall thing is hovered, flip the bit in the middle!! */
+.card:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+}
+
+.cardBack {
+  background-color: blue
 }
