@@ -64,6 +64,10 @@ window.onload = function() {
 		div = document.createElement('div');
 		div.className = 'card';
 
+    if(myDeck[i].suit == 'Diamonds' || myDeck[i].suit == 'Hearts') {
+      div.className = 'card red';
+    }
+
 		if(myDeck[i].suit == 'Diamonds'){
 			var ascii_char = '♦';
 		} else {
