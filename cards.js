@@ -9,7 +9,7 @@ function card(value, name, suit){
 
 // now that we've got our card object let's create a simple deck object that will return an array of 52 cards.
 function deck(){
-	this.names = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+	this.names = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 	this.suits = ['Hearts','Diamonds','Spades','Clubs'];
 	var cards = [];
 
@@ -47,13 +47,60 @@ function fisherYates(array) {
 
   return array;
 }
-
-
-
 // ======================
 
 fisherYates(myDeck)
 // console.log(myDeck);
 
+
+function dealCardsOld(amount,pack,where){
+  for(var i=0; i < amount; i++){
+    div = document.createElement('div');
+    div.className = 'card';
+
+    if(pack[i].suit == 'Diamonds' || pack[i].suit == 'Hearts') {
+      div.className = 'card red';
+    }
+
+    if(pack[i].suit == 'Diamonds'){
+      var ascii_char = '♦';
+    } else {
+      var ascii_char = '&' + pack[i].suit.toLowerCase() + ';';
+    }
+
+    div.innerHTML = '' + pack[i].name + '' + ascii_char + '';
+    where.appendChild(div);
+  }
+}
+
+
+// alt version
+function dealCards(amount,pack,where){
+  for(var i=0; i < amount; i++){
+    div = document.createElement('div');
+    div.className = 'cardFront';
+
+    if(pack[i].suit == 'Diamonds' || pack[i].suit == 'Hearts') {
+      div.className = 'cardFront red';
+    }
+
+    if(pack[i].suit == 'Diamonds'){
+      var ascii_char = '♦';
+    } else {
+      var ascii_char = '&' + pack[i].suit.toLowerCase() + ';';
+    }
+
+    div.innerHTML = '' + pack[i].name + '' + ascii_char + '';
+
+    let card = `<div class="card">
+      ${div}
+      <div class="cardBack">
+        reverse of card
+      </div>
+    </div>`;
+
+    where.appendChild(div);
+  }
+}
 
 // then different functions on different pages?
