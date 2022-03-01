@@ -22,9 +22,9 @@ function deck(){
     return cards;
 }
 
-// Now, let's create a new deck of cards and print it out in the consule.
+// Now, let's create a new deck of cards
 var myDeck = new deck();
-console.log(myDeck);
+// console.log(myDeck);
 
 
 // ============ Fisher - Yates Shuffle
@@ -53,7 +53,7 @@ function fisherYates(array) {
 // ======================
 
 fisherYates(myDeck)
-console.log(myDeck);
+// console.log(myDeck);
 
 
 // Let's create a window Onload function to add some HTML elements to the page to display the cards
