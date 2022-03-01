@@ -56,26 +56,4 @@ fisherYates(myDeck)
 // console.log(myDeck);
 
 
-// Let's create a window Onload function to add some HTML elements to the page to display the cards
-
-window.onload = function() {
-
-	for(var i=0; i < myDeck.length; i++){
-		div = document.createElement('div');
-		div.className = 'card';
-
-    if(myDeck[i].suit == 'Diamonds' || myDeck[i].suit == 'Hearts') {
-      div.className = 'card red';
-    }
-
-		if(myDeck[i].suit == 'Diamonds'){
-			var ascii_char = '♦';
-		} else {
-			var ascii_char = '&' + myDeck[i].suit.toLowerCase() + ';';
-		}
-
-		div.innerHTML = '' + myDeck[i].name + '' + ascii_char + '';
-		document.body.appendChild(div);
-	}
-
-}
+// then different functions on different pages?
